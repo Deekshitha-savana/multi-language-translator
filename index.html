@@ -16,17 +16,15 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         .container {
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 1200px;
+            max-width: 1400px;
             width: 100%;
+            margin: 0 auto;
             padding: 40px;
         }
 
@@ -47,10 +45,11 @@
         }
 
         .api-section {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 12px;
             margin-bottom: 30px;
+            border: 2px solid #667eea;
         }
 
         .api-section label {
@@ -58,40 +57,86 @@
             color: #333;
             font-weight: 600;
             margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .api-input-group {
+            position: relative;
         }
 
         .api-section input {
             width: 100%;
-            padding: 12px;
+            padding: 15px 50px 15px 15px;
             border: 2px solid #ddd;
             border-radius: 8px;
             font-size: 1em;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
+            background: white;
         }
 
         .api-section input:focus {
             outline: none;
             border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
-        .model-selector {
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin-bottom: 30px;
         }
 
-        .model-selector label {
+        .config-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+
+        .config-box label {
             display: block;
             color: #333;
             font-weight: 600;
             margin-bottom: 10px;
         }
 
-        .model-selector select {
+        .config-box select,
+        .config-box input[type="checkbox"] {
             width: 100%;
             padding: 12px;
             border: 2px solid #ddd;
             border-radius: 8px;
             font-size: 1em;
             background: white;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .config-box select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-wrapper input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
             cursor: pointer;
         }
 
@@ -105,8 +150,14 @@
 
         .translator-box {
             background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid #e0e0e0;
+            transition: border-color 0.3s;
+        }
+
+        .translator-box:hover {
+            border-color: #667eea;
         }
 
         .translator-box label {
@@ -114,28 +165,36 @@
             color: #333;
             font-weight: 600;
             margin-bottom: 10px;
+            font-size: 1.1em;
         }
 
         .translator-box select {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 2px solid #ddd;
             border-radius: 8px;
             margin-bottom: 15px;
             font-size: 1em;
             background: white;
             cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .translator-box select:focus {
+            outline: none;
+            border-color: #667eea;
         }
 
         .translator-box textarea {
             width: 100%;
-            min-height: 200px;
+            min-height: 250px;
             padding: 15px;
             border: 2px solid #ddd;
             border-radius: 8px;
             font-size: 1em;
             resize: vertical;
             font-family: inherit;
+            transition: border-color 0.3s;
         }
 
         .translator-box textarea:focus {
@@ -144,53 +203,67 @@
         }
 
         .swap-btn {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            font-size: 1.5em;
+            font-size: 1.8em;
             cursor: pointer;
             transition: all 0.3s;
             align-self: center;
-            margin-top: 80px;
+            margin-top: 100px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
         .swap-btn:hover {
-            background: #764ba2;
-            transform: rotate(180deg);
+            transform: rotate(180deg) scale(1.1);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
 
         .translate-btn {
             width: 100%;
-            padding: 15px;
+            padding: 18px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 10px;
-            font-size: 1.2em;
+            border-radius: 12px;
+            font-size: 1.3em;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
         .translate-btn:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
 
         .translate-btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
+            transform: none;
         }
 
         .info-section {
             background: #e3f2fd;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 10px;
             margin-top: 20px;
-            font-size: 0.9em;
+            font-size: 0.95em;
             color: #1565c0;
+            border-left: 4px solid #2196f3;
+        }
+
+        .info-section ul {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .info-section li {
+            margin-bottom: 8px;
         }
 
         .error {
@@ -200,16 +273,48 @@
             border-radius: 8px;
             margin-bottom: 20px;
             display: none;
+            border-left: 4px solid #c62828;
+        }
+
+        .success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            border-left: 4px solid #2e7d32;
         }
 
         .char-count {
             text-align: right;
             color: #666;
             font-size: 0.9em;
-            margin-top: 5px;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .detected-lang {
+            background: #fff3e0;
+            color: #e65100;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .config-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
             .translator-grid {
                 grid-template-columns: 1fr;
             }
@@ -222,36 +327,85 @@
             .header h1 {
                 font-size: 1.8em;
             }
+
+            .config-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🌐 Sarvam AI Translator</h1>
-            <p>Translate text across 22+ Indian languages</p>
+            <h1>🌐 Sarvam AI Multilingual Translator</h1>
+            <p>Translate text across 22+ Indian languages with advanced features</p>
         </div>
 
         <div class="error" id="error"></div>
+        <div class="success" id="success"></div>
 
         <div class="api-section">
             <label for="apiKey">🔑 Enter Your Sarvam AI API Key:</label>
-            <input type="password" id="apiKey" placeholder="Enter your API key here..." />
+            <div class="api-input-group">
+                <input type="password" id="apiKey" placeholder="Enter your API key here (e.g., api_key_xxxxx)..." />
+                <span class="toggle-password" id="togglePassword">👁️</span>
+            </div>
         </div>
 
-        <div class="model-selector">
-            <label for="model">Select Translation Model:</label>
-            <select id="model">
-                <option value="mayura:v1">Mayura v1 (11 languages, auto-detect support)</option>
-                <option value="sarvam-translate:v1">Sarvam Translate v1 (22 languages, formal mode)</option>
-            </select>
+        <div class="config-grid">
+            <div class="config-box">
+                <label for="model">Translation Model:</label>
+                <select id="model">
+                    <option value="mayura:v1">Mayura v1 (11 languages, faster)</option>
+                    <option value="sarvam-translate:v1">Sarvam Translate v1 (22 languages)</option>
+                </select>
+            </div>
+
+            <div class="config-box">
+                <label for="mode">Translation Mode:</label>
+                <select id="mode">
+                    <option value="formal">Formal</option>
+                    <option value="informal">Informal</option>
+                </select>
+            </div>
+
+            <div class="config-box">
+                <label for="speakerGender">Speaker Gender:</label>
+                <select id="speakerGender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="config-box">
+                <label for="outputScript">Output Script:</label>
+                <select id="outputScript">
+                    <option value="null">Default (Native Script)</option>
+                    <option value="roman">Roman (Transliteration)</option>
+                </select>
+            </div>
+
+            <div class="config-box">
+                <label for="numeralsFormat">Numerals Format:</label>
+                <select id="numeralsFormat">
+                    <option value="international">International (0-9)</option>
+                    <option value="native">Native Script</option>
+                </select>
+            </div>
+
+            <div class="config-box">
+                <label class="checkbox-wrapper">
+                    <input type="checkbox" id="enablePreprocessing">
+                    <span>Enable Preprocessing (Better for complex text)</span>
+                </label>
+            </div>
         </div>
 
         <div class="translator-grid">
             <div class="translator-box">
                 <label for="sourceLang">Source Language:</label>
                 <select id="sourceLang">
-                    <option value="auto">Auto Detect (Mayura only)</option>
+                    <option value="auto">🔍 Auto Detect (Mayura & Sarvam-Translate)</option>
                     <option value="en-IN">English</option>
                     <option value="hi-IN">Hindi (हिन्दी)</option>
                     <option value="bn-IN">Bengali (বাংলা)</option>
@@ -276,7 +430,7 @@
                     <option value="sd-IN">Sindhi (سنڌي)</option>
                     <option value="ur-IN">Urdu (اُردُو)</option>
                 </select>
-                <textarea id="sourceText" placeholder="Enter text to translate..."></textarea>
+                <textarea id="sourceText" placeholder="Enter text to translate... (supports code-mixed text)"></textarea>
                 <div class="char-count" id="sourceCharCount">0 / 2000 characters</div>
             </div>
 
@@ -310,25 +464,34 @@
                     <option value="ur-IN">Urdu (اُردُو)</option>
                 </select>
                 <textarea id="targetText" placeholder="Translation will appear here..." readonly></textarea>
+                <div class="detected-lang" id="detectedLang"></div>
             </div>
         </div>
 
-        <button class="translate-btn" id="translateBtn">Translate</button>
+        <button class="translate-btn" id="translateBtn">🚀 Translate Now</button>
 
         <div class="info-section">
-            <strong>ℹ️ Important Notes:</strong>
-            <ul style="margin-top: 10px; margin-left: 20px;">
-                <li><strong>Mayura v1:</strong> Supports 11 languages with auto-detect feature</li>
-                <li><strong>Sarvam Translate v1:</strong> Supports all 22 Indian languages (formal mode only)</li>
-                <li>Character limits: Mayura (1000), Sarvam Translate (2000)</li>
-                <li>Get your API key from <a href="https://dashboard.sarvam.ai" target="_blank">Sarvam AI Dashboard</a></li>
+            <strong>ℹ️ Important Information:</strong>
+            <ul>
+                <li><strong>Auto-detect:</strong> Both Mayura v1 and Sarvam-Translate v1 support automatic language detection</li>
+                <li><strong>Character Limits:</strong> Mayura v1 (1000 chars), Sarvam-Translate v1 (2000 chars)</li>
+                <li><strong>Language Support:</strong> Mayura (11 languages), Sarvam-Translate (22 languages)</li>
+                <li><strong>Advanced Features:</strong> Preprocessing, gender-aware translation, script options, and numeral formats</li>
+                <li><strong>Get API Key:</strong> Sign up at <a href="https://dashboard.sarvam.ai" target="_blank" style="color: #1565c0; font-weight: bold;">Sarvam AI Dashboard</a></li>
+                <li><strong>Rate Limits:</strong> 300 requests/minute for translation endpoint</li>
             </ul>
         </div>
     </div>
 
     <script>
         const apiKeyInput = document.getElementById('apiKey');
+        const togglePassword = document.getElementById('togglePassword');
         const modelSelect = document.getElementById('model');
+        const modeSelect = document.getElementById('mode');
+        const speakerGenderSelect = document.getElementById('speakerGender');
+        const outputScriptSelect = document.getElementById('outputScript');
+        const numeralsFormatSelect = document.getElementById('numeralsFormat');
+        const enablePreprocessing = document.getElementById('enablePreprocessing');
         const sourceLangSelect = document.getElementById('sourceLang');
         const targetLangSelect = document.getElementById('targetLang');
         const sourceText = document.getElementById('sourceText');
@@ -336,9 +499,17 @@
         const translateBtn = document.getElementById('translateBtn');
         const swapBtn = document.getElementById('swapBtn');
         const errorDiv = document.getElementById('error');
+        const successDiv = document.getElementById('success');
         const sourceCharCount = document.getElementById('sourceCharCount');
+        const detectedLang = document.getElementById('detectedLang');
 
         const mayuraLanguages = ['en-IN', 'hi-IN', 'bn-IN', 'gu-IN', 'kn-IN', 'ml-IN', 'mr-IN', 'od-IN', 'pa-IN', 'ta-IN', 'te-IN'];
+
+        togglePassword.addEventListener('click', () => {
+            const type = apiKeyInput.type === 'password' ? 'text' : 'password';
+            apiKeyInput.type = type;
+            togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
+        });
 
         modelSelect.addEventListener('change', updateLanguageOptions);
         sourceText.addEventListener('input', updateCharCount);
@@ -350,6 +521,8 @@
             
             if (length > maxLength) {
                 sourceCharCount.style.color = '#c62828';
+            } else if (length > maxLength * 0.8) {
+                sourceCharCount.style.color = '#f57c00';
             } else {
                 sourceCharCount.style.color = '#666';
             }
@@ -357,13 +530,11 @@
 
         function updateLanguageOptions() {
             const model = modelSelect.value;
-            const allOptions = Array.from(sourceLangSelect.options);
-            const targetOptions = Array.from(targetLangSelect.options);
+            const allSourceOptions = Array.from(sourceLangSelect.options);
+            const allTargetOptions = Array.from(targetLangSelect.options);
 
             if (model === 'mayura:v1') {
-                sourceLangSelect.querySelector('option[value="auto"]').style.display = 'block';
-                
-                allOptions.forEach(opt => {
+                allSourceOptions.forEach(opt => {
                     if (opt.value !== 'auto' && !mayuraLanguages.includes(opt.value)) {
                         opt.style.display = 'none';
                     } else {
@@ -371,7 +542,7 @@
                     }
                 });
 
-                targetOptions.forEach(opt => {
+                allTargetOptions.forEach(opt => {
                     if (!mayuraLanguages.includes(opt.value)) {
                         opt.style.display = 'none';
                     } else {
@@ -379,17 +550,15 @@
                     }
                 });
 
+                if (!mayuraLanguages.includes(sourceLangSelect.value) && sourceLangSelect.value !== 'auto') {
+                    sourceLangSelect.value = 'auto';
+                }
                 if (!mayuraLanguages.includes(targetLangSelect.value)) {
                     targetLangSelect.value = 'en-IN';
                 }
             } else {
-                sourceLangSelect.querySelector('option[value="auto"]').style.display = 'none';
-                if (sourceLangSelect.value === 'auto') {
-                    sourceLangSelect.value = 'en-IN';
-                }
-
-                allOptions.forEach(opt => opt.style.display = 'block');
-                targetOptions.forEach(opt => opt.style.display = 'block');
+                allSourceOptions.forEach(opt => opt.style.display = 'block');
+                allTargetOptions.forEach(opt => opt.style.display = 'block');
             }
 
             updateCharCount();
@@ -419,48 +588,72 @@
             const sourceLang = sourceLangSelect.value;
             const targetLang = targetLangSelect.value;
             const model = modelSelect.value;
+            const mode = modeSelect.value;
+            const speakerGender = speakerGenderSelect.value;
+            const outputScript = outputScriptSelect.value === 'null' ? null : outputScriptSelect.value;
+            const numeralsFormat = numeralsFormatSelect.value;
+            const preprocessing = enablePreprocessing.checked;
 
             errorDiv.style.display = 'none';
+            successDiv.style.display = 'none';
+            detectedLang.style.display = 'none';
 
             if (!apiKey) {
-                showError('Please enter your API key');
+                showError('⚠️ Please enter your API key');
                 return;
             }
 
             if (!text) {
-                showError('Please enter text to translate');
+                showError('⚠️ Please enter text to translate');
                 return;
             }
 
             const maxLength = model === 'mayura:v1' ? 1000 : 2000;
             if (text.length > maxLength) {
-                showError(`Text exceeds maximum length of ${maxLength} characters`);
+                showError(`⚠️ Text exceeds maximum length of ${maxLength} characters`);
                 return;
             }
 
             if (sourceLang === targetLang && sourceLang !== 'auto') {
-                showError('Source and target languages cannot be the same');
+                showError('⚠️ Source and target languages cannot be the same');
                 return;
             }
 
             translateBtn.disabled = true;
-            translateBtn.textContent = 'Translating...';
+            translateBtn.textContent = '🔄 Translating...';
             targetText.value = '';
+
+            const requestBody = {
+                input: text,
+                source_language_code: sourceLang,
+                target_language_code: targetLang,
+                speaker_gender: speakerGender,
+                mode: mode,
+                enable_preprocessing: preprocessing
+            };
+
+            // Add optional parameters only if not default
+            if (outputScript !== null) {
+                requestBody.output_script = outputScript;
+            }
+            
+            if (numeralsFormat !== 'international') {
+                requestBody.numerals_format = numeralsFormat;
+            }
+
+            // Model parameter - optional for newer API versions
+            if (model) {
+                requestBody.model = model;
+            }
 
             try {
                 const response = await fetch('https://api.sarvam.ai/translate', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'API-Subscription-Key': apiKey
+                        'api-subscription-key': apiKey
                     },
-                    body: JSON.stringify({
-                        input: text,
-                        source_language_code: sourceLang,
-                        target_language_code: targetLang,
-                        model: model,
-                        enable_preprocessing: false
-                    })
+                    body: JSON.stringify(requestBody)
                 });
 
                 if (!response.ok) {
@@ -469,23 +662,43 @@
                 }
 
                 const data = await response.json();
-                targetText.value = data.translated_text || 'No translation returned';
+                
+                if (data.translated_text) {
+                    targetText.value = data.translated_text;
+                    showSuccess('✅ Translation completed successfully!');
+                    
+                    if (data.source_language_code && sourceLang === 'auto') {
+                        detectedLang.textContent = `🔍 Detected Language: ${data.source_language_code}`;
+                        detectedLang.style.display = 'block';
+                    }
+                } else {
+                    throw new Error('No translation returned from API');
+                }
 
             } catch (error) {
-                showError(`Translation failed: ${error.message}`);
+                showError(`❌ Translation failed: ${error.message}`);
                 console.error('Translation error:', error);
             } finally {
                 translateBtn.disabled = false;
-                translateBtn.textContent = 'Translate';
+                translateBtn.textContent = '🚀 Translate Now';
             }
         });
 
         function showError(message) {
             errorDiv.textContent = message;
             errorDiv.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             setTimeout(() => {
                 errorDiv.style.display = 'none';
             }, 5000);
+        }
+
+        function showSuccess(message) {
+            successDiv.textContent = message;
+            successDiv.style.display = 'block';
+            setTimeout(() => {
+                successDiv.style.display = 'none';
+            }, 3000);
         }
 
         updateLanguageOptions();
